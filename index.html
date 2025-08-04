@@ -1,0 +1,158 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My World</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('2.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-shadow: 1px 1px 2px #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Diagonal Flying Birds Animation */
+    .birds {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 180px;
+      opacity: 0.85;
+      pointer-events: none;
+      z-index: 1;
+      animation: flyDiagonal 15s linear infinite;
+    }
+
+    @keyframes flyDiagonal {
+      0% {
+        top: -100px;
+        right: -100px;
+        transform: scale(1);
+        opacity: 0.2;
+      }
+      50% {
+        top: 40%;
+        right: 40%;
+        transform: scale(1.1);
+        opacity: 1;
+      }
+      100% {
+        top: 90%;
+        right: 70%;
+        transform: scale(0.8);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      z-index: 2;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      animation: fadeIn 2s ease-in;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: #fff;
+      -webkit-text-stroke: 1px #ff6f91;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #eee;
+      -webkit-text-stroke: 0.5px #6ff;
+    }
+
+    .icon {
+      width: 1.5in;
+      height: 1.5in;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .icon:hover {
+      transform: scale(1.1);
+    }
+
+    .links-tab {
+      margin-top: 25px;
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      animation: slideIn 0.5s ease forwards;
+    }
+
+    .links-tab a {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 2px solid #fff;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .links-tab a:hover {
+      background-color: #ff6f91;
+      color: #000;
+      border-color: #000;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Flying Birds -->
+  <img src="3.gif" alt="Flying Birds" class="birds" />
+
+  <!-- Main Content Container -->
+  <div class="container">
+    <h1>Welcome to My World</h1>
+    <p>A site about me, my interests, and how to reach me.</p>
+    <img src="1.png" alt="Profile Icon" class="icon" onclick="toggleLinks()" />
+
+    <div id="linkTab" class="links-tab">
+      <a href="about.html">About Me</a>
+      <a href="blog.html">Hobbies and Acievements
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleLinks() {
+      const tab = document.getElementById("linkTab");
+      tab.style.display = tab.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
+</body>
+</html>
